@@ -1,0 +1,32 @@
+services:
+  web:
+    image: php:apache
+    container_name: amp_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+      - ./apache/phpmyadmin.conf:/etc/apache2/conf-enabled/phpmyadmin.conf
+    command: >
+      bash -c "
+      a2enmod proxy proxy_http &&
+      apache2-foreground
+      "
+    depends_on:
+      - db
+      - phpmyadmin
+
+  db:
+    image: mysql
+    container_name: amp_db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: appdb
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: amp_pma
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD:
