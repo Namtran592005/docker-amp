@@ -1,7 +1,7 @@
 # Pure AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
 
 ![img](Screenshot.png)
-![img2](Screenshot-2.png)
+![img-2](Screenshot-2.png)
 
 A **minimal, clean AMP stack** using Docker for **local development and learning**.  
 The repository includes a **ready-to-run structure** — just clone and start.
@@ -131,7 +131,7 @@ Designed to be **simple, correct, and easy to extend**.
 # AMP Docker thuần (Apache + PHP + MySQL + phpMyAdmin)
 
 ![img](Screenshot.png)
-![img2](Screenshot-2.png)
+![img-2](Screenshot-2.png)
 
 Stack AMP **tối giản, gọn, đúng bản chất Docker** cho **học tập và phát triển local**.  
 Repo đã có **sẵn cấu trúc**, clone về là chạy.
