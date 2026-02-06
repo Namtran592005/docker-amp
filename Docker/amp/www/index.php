@@ -4,136 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker Development Dashboard</title>
+    <title>Dev Stack</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+            background-color: #fafafa;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .card-shadow {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-
-        .card-shadow:hover {
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-            transform: translateY(-2px);
+        .grid-clean {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="p-6 md:p-12 text-slate-800">
 
-    <nav class="sticky top-0 z-50 glass border-b border-gray-200/50 px-6 py-4">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker Logo"
-                    class="h-8">
-                <span class="font-semibold text-lg tracking-tight">Docker Dashboard</span>
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-12 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">Docker Dev</h1>
+                <p class="text-slate-500 italic">Môi trường đã sẵn sàng.</p>
             </div>
-            <div class="text-xs font-medium px-3 py-1 bg-green-100 text-green-600 rounded-full">
-                ● Container Online
+            <div
+                class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 px-2 py-1 rounded">
+                Active
             </div>
-        </div>
-    </nav>
-
-    <main class="max-w-5xl mx-auto px-6 py-12">
-        <header class="mb-12 text-center">
-            <h1 class="text-5xl font-extrabold tracking-tight mb-4 text-gray-900">Môi trường đã sẵn sàng.</h1>
-            <p class="text-xl text-gray-500">Mọi thứ đã được thiết lập tự động và đang chạy trên hệ thống của bạn.</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div class="grid-clean mb-12">
 
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-gray-100">
-                <div class="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
-                    <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                    </svg>
-                </div>
-                <h3 class="text-gray-400 text-sm font-semibold uppercase mb-1">PHP Engine</h3>
-                <p class="text-3xl font-bold mb-4"><?php echo PHP_VERSION; ?></p>
-                <a href="?info=1" class="text-blue-600 font-medium hover:underline inline-flex items-center">Cấu hình
-                    chi tiết →</a>
+            <div class="bg-white border border-slate-200 p-6 rounded-2xl">
+                <p class="text-xs font-semibold text-slate-400 uppercase mb-2">PHP Version</p>
+                <p class="text-4xl font-light mb-4"><?php echo PHP_VERSION; ?></p>
+                <a href="?info=1" class="text-sm text-blue-500 hover:text-blue-700 font-medium">Chi tiết cấu hình →</a>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-gray-100">
-                <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                    <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL" class="h-6">
-                </div>
-                <h3 class="text-gray-400 text-sm font-semibold uppercase mb-1">Cơ sở dữ liệu</h3>
-                <p class="text-3xl font-bold mb-4">MySQL / MariaDB</p>
-                <div class="text-sm text-gray-500 space-y-1">
-                    <p>Host: <code class="bg-gray-100 px-1 rounded">mysql_container</code></p>
-                    <p>User: <code class="bg-gray-100 px-1 rounded">root</code></p>
-                </div>
+            <div class="bg-white border border-slate-200 p-6 rounded-2xl">
+                <p class="text-xs font-semibold text-slate-400 uppercase mb-2">Database Host</p>
+                <p class="text-2xl font-semibold mb-1">mysql_container</p>
+                <p class="text-sm text-slate-500">User: <span class="font-mono bg-slate-100 px-1">root</span></p>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-gray-100 flex flex-col justify-between">
+            <div
+                class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between hover:bg-black transition-all">
+                <p class="text-xs font-semibold text-slate-400 uppercase">Tools</p>
                 <div>
-                    <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h3 class="text-gray-400 text-sm font-semibold uppercase mb-1">Quản trị DB</h3>
-                    <p class="text-3xl font-bold mb-4">phpMyAdmin</p>
+                    <p class="text-xl font-medium">phpMyAdmin</p>
+                    <a href="http://localhost/phpmyadmin/" target="_blank"
+                        class="mt-4 inline-block text-sm border-b border-white/30 pb-1 hover:border-white transition-all">Truy
+                        cập Dashboard</a>
                 </div>
-                <a href="http://localhost:8081" target="_blank"
-                    class="w-full py-3 bg-gray-900 text-white rounded-xl font-medium text-center hover:bg-black transition-colors">
-                    Truy cập Dashboard
-                </a>
             </div>
 
         </div>
 
-        <div class="bg-white/50 rounded-3xl p-8 border border-gray-200">
-            <h2 class="text-2xl font-bold mb-6">Thông tin hệ thống</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-500">Web Server</span>
-                        <span class="font-medium"><?php echo $_SERVER['SERVER_SOFTWARE']; ?></span>
-                    </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-500">Giao thức</span>
-                        <span class="font-medium"><?php echo $_SERVER['SERVER_PROTOCOL']; ?></span>
-                    </div>
+        <div class="border-t border-slate-200 pt-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div>
+                    <p class="text-slate-400">Server</p>
+                    <p class="font-medium truncate"><?php echo explode('/', $_SERVER['SERVER_SOFTWARE'])[0]; ?></p>
                 </div>
-                <div class="space-y-4">
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-500">Địa chỉ IP</span>
-                        <span class="font-mono"><?php echo $_SERVER['SERVER_ADDR'] ?? '127.0.0.1'; ?></span>
-                    </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-500">Thời gian</span>
-                        <span class="font-medium"><?php echo date('Y-m-d H:i:s'); ?></span>
-                    </div>
+                <div>
+                    <p class="text-slate-400">IP Address</p>
+                    <p class="font-mono"><?php echo $_SERVER['SERVER_ADDR'] ?? '127.0.0.1'; ?></p>
+                </div>
+                <div class="col-span-2">
+                    <p class="text-slate-400">Time</p>
+                    <p class="font-medium"><?php echo date('Y-m-d H:i'); ?></p>
                 </div>
             </div>
         </div>
 
         <?php if (isset($_GET['info'])): ?>
-            <div class="mt-12 bg-white rounded-3xl p-8 card-shadow border border-gray-100 overflow-hidden">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold text-blue-600">PHP Configuration</h2>
-                    <a href="?"
-                        class="h-8 w-8 flex items-center justify-center bg-red-50 text-red-500 rounded-full hover:bg-red-100 transition-colors">✕</a>
+            <div class="mt-12 pt-8 border-t border-slate-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-bold">PHP Info</h3>
+                    <a href="?" class="text-slate-400 hover:text-red-500">Đóng [x]</a>
                 </div>
-                <div class="overflow-x-auto max-h-[500px] text-xs">
+                <div class="bg-white rounded-xl border border-slate-200 p-4 overflow-x-auto text-[10px]">
                     <?php
                     ob_start();
                     phpinfo();
@@ -144,11 +95,11 @@
                 </div>
             </div>
         <?php endif; ?>
-    </main>
 
-    <footer class="py-12 text-center text-gray-400 text-sm">
-        Thiết kế bởi Gemini &bull; Chạy trên nền tảng Docker
-    </footer>
+        <footer class="mt-20 text-[11px] text-slate-400 uppercase tracking-tighter">
+            Minimalist Dashboard &bull; Running on Docker
+        </footer>
+    </div>
 
 </body>
 
