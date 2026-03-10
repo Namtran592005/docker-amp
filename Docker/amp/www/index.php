@@ -5,86 +5,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Stack</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-            background-color: #fafafa;
+        /* Base Reset & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fafafa;
+            color: #1e293b;
+            /* slate-800 */
+            line-height: 1.5;
+            padding: 3rem 1.5rem;
+        }
+
+        .container {
+            max-width: 56rem;
+            /* 4xl */
+            margin: 0 auto;
+        }
+
+        /* Layout Helpers */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #10b981;
+            /* emerald-500 */
+            background-color: #ecfdf5;
+            /* emerald-50 */
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Grid System */
         .grid-clean {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 1rem;
+        }
+
+        .card-dark {
+            background-color: #0f172a;
+            /* slate-900 */
+            color: white;
+            transition: background-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-dark:hover {
+            background-color: #000;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #94a3b8;
+            /* slate-400 */
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Typography inside cards */
+        .val-large {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .val-medium {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .val-tool {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .mono-tag {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            background-color: #f1f5f9;
+            padding: 0 0.25rem;
+        }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .link-blue {
+            color: #3b82f6;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .link-blue:hover {
+            color: #1d4ed8;
+        }
+
+        .link-white {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.25rem;
+        }
+
+        .link-white:hover {
+            border-bottom-color: white;
+        }
+
+        /* Footer Stats */
+        .stats-footer {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-footer {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            body {
+                padding: 3rem;
+            }
+        }
+
+        .stat-item p:first-child {
+            color: #94a3b8;
+        }
+
+        .stat-item p:last-child {
+            font-weight: 500;
+        }
+
+        /* PHP Info Section */
+        .info-section {
+            margin-top: 3rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .info-content {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 10px;
+        }
+
+        /* PHPInfo Styles Reset */
+        .info-content table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .info-content td,
+        .info-content th {
+            border: 1px solid #ddd;
+            padding: 4px;
+        }
+
+        .page-footer {
+            margin-top: 5rem;
+            font-size: 11px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
         }
     </style>
 </head>
 
-<body class="p-6 md:p-12 text-slate-800">
+<body>
 
-    <div class="max-w-4xl mx-auto">
-        <header class="mb-12 flex justify-between items-end">
+    <div class="container">
+        <header>
             <div>
-                <h1 class="text-3xl font-bold tracking-tight">Docker Dev</h1>
-                <p class="text-slate-500 italic">Môi trường đã sẵn sàng.</p>
+                <h1 class="title">Docker Dev</h1>
+                <p class="subtitle">Môi trường đã sẵn sàng.</p>
             </div>
-            <div
-                class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 px-2 py-1 rounded">
-                Active
-            </div>
+            <div class="badge">Active</div>
         </header>
 
-        <div class="grid-clean mb-12">
-
-            <div class="bg-white border border-slate-200 p-6 rounded-2xl">
-                <p class="text-xs font-semibold text-slate-400 uppercase mb-2">PHP Version</p>
-                <p class="text-4xl font-light mb-4"><?php echo PHP_VERSION; ?></p>
-                <a href="?info=1" class="text-sm text-blue-500 hover:text-blue-700 font-medium">Chi tiết cấu hình →</a>
+        <div class="grid-clean">
+            <div class="card">
+                <p class="label">PHP Version</p>
+                <p class="val-large"><?php echo PHP_VERSION; ?></p>
+                <a href="?info=1" class="link-blue">Chi tiết cấu hình →</a>
             </div>
 
-            <div class="bg-white border border-slate-200 p-6 rounded-2xl">
-                <p class="text-xs font-semibold text-slate-400 uppercase mb-2">Database Host</p>
-                <p class="text-2xl font-semibold mb-1">mysql_container</p>
-                <p class="text-sm text-slate-500">User: <span class="font-mono bg-slate-100 px-1">root</span></p>
+            <div class="card">
+                <p class="label">Database Host</p>
+                <p class="val-medium">mysql_container</p>
+                <p style="font-size: 0.875rem; color: #64748b;">User: <span class="mono-tag">root</span></p>
             </div>
 
-            <div
-                class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between hover:bg-black transition-all">
-                <p class="text-xs font-semibold text-slate-400 uppercase">Tools</p>
+            <div class="card card-dark">
+                <p class="label" style="color: #94a3b8;">Tools</p>
                 <div>
-                    <p class="text-xl font-medium">phpMyAdmin</p>
-                    <a href="http://localhost/phpmyadmin/" target="_blank"
-                        class="mt-4 inline-block text-sm border-b border-white/30 pb-1 hover:border-white transition-all">Truy
-                        cập Dashboard</a>
+                    <p class="val-tool">phpMyAdmin</p>
+                    <a href="http://localhost/phpmyadmin/" target="_blank" class="link-white">Truy cập Dashboard</a>
                 </div>
             </div>
-
         </div>
 
-        <div class="border-t border-slate-200 pt-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div>
-                    <p class="text-slate-400">Server</p>
-                    <p class="font-medium truncate"><?php echo explode('/', $_SERVER['SERVER_SOFTWARE'])[0]; ?></p>
-                </div>
-                <div>
-                    <p class="text-slate-400">IP Address</p>
-                    <p class="font-mono"><?php echo $_SERVER['SERVER_ADDR'] ?? '127.0.0.1'; ?></p>
-                </div>
-                <div class="col-span-2">
-                    <p class="text-slate-400">Time</p>
-                    <p class="font-medium"><?php echo date('Y-m-d H:i'); ?></p>
-                </div>
+        <div class="stats-footer">
+            <div class="stat-item">
+                <p>Server</p>
+                <p style="word-break: break-all;"><?php echo explode('/', $_SERVER['SERVER_SOFTWARE'])[0]; ?></p>
+            </div>
+            <div class="stat-item">
+                <p>IP Address</p>
+                <p style="font-family: monospace;"><?php echo $_SERVER['SERVER_ADDR'] ?? '127.0.0.1'; ?></p>
+            </div>
+            <div class="stat-item" style="grid-column: span 2;">
+                <p>Time</p>
+                <p><?php echo date('Y-m-d H:i'); ?></p>
             </div>
         </div>
 
         <?php if (isset($_GET['info'])): ?>
-            <div class="mt-12 pt-8 border-t border-slate-200">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="font-bold">PHP Info</h3>
-                    <a href="?" class="text-slate-400 hover:text-red-500">Đóng [x]</a>
+            <div class="info-section">
+                <div class="info-header">
+                    <h3 style="font-weight: 700;">PHP Info</h3>
+                    <a href="?" style="color: #94a3b8;">Đóng [x]</a>
                 </div>
-                <div class="bg-white rounded-xl border border-slate-200 p-4 overflow-x-auto text-[10px]">
+                <div class="info-content">
                     <?php
                     ob_start();
                     phpinfo();
@@ -96,7 +290,7 @@
             </div>
         <?php endif; ?>
 
-        <footer class="mt-20 text-[11px] text-slate-400 uppercase tracking-tighter">
+        <footer class="page-footer">
             Minimalist Dashboard &bull; Running on Docker
         </footer>
     </div>
