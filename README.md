@@ -1,6 +1,7 @@
 # AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
 
 ![img](Screenshot.png)
+---
 ![img-2](Screenshot-2.png)
 
 A **minimal, clean AMP stack** using Docker for **local development and learning**.  
@@ -131,6 +132,7 @@ Designed to be **simple, correct, and easy to extend**.
 # AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
 
 ![img](Screenshot.png)
+---
 ![img-2](Screenshot-2.png)
 
 Stack AMP **tối giản, gọn, đúng bản chất Docker** cho **học tập và phát triển local**.  
