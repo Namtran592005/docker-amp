@@ -1,6 +1,4 @@
 # AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
-
-![img](Screenshot.png)
 ---
 ![img-2](Screenshot-2.png)
 
@@ -130,8 +128,6 @@ Designed to be **simple, correct, and easy to extend**.
 ---
 
 # AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
-
-![img](Screenshot.png)
 ---
 ![img-2](Screenshot-2.png)
 
