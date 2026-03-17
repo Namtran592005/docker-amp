@@ -1,6 +1,6 @@
 # AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
 ---
-![img-2](Screenshot-2.png)
+![img](Screenshot.png)
 
 A **minimal, clean AMP stack** using Docker for **local development and learning**.  
 The repository includes a **ready-to-run structure** — just clone and start.
@@ -106,30 +106,14 @@ docker compose down -v
 - Do not expose phpMyAdmin
     
 - Use proper VPS/Linux setup
-    
-
----
-
-## Quick Summary
-
-- Clone repo
-    
-- `docker compose up -d`
-    
-- Visit `http://localhost`
-    
-- DB at `/phpmyadmin`
-    
-
-Designed to be **simple, correct, and easy to extend**.
-
+  
 ---
 
 ---
 
 # AMP Docker (Apache + PHP + MySQL + phpMyAdmin)
 ---
-![img-2](Screenshot-2.png)
+![img](Screenshot.png)
 
 Stack AMP **tối giản, gọn, đúng bản chất Docker** cho **học tập và phát triển local**.  
 Repo đã có **sẵn cấu trúc**, clone về là chạy.
@@ -238,16 +222,3 @@ docker compose down -v
     
 
 ---
-
-## Tóm tắt
-
-- Clone repo
-    
-- `docker compose up -d`
-    
-- Truy cập `http://localhost`
-    
-- Quản lý DB tại `/phpmyadmin`
-    
-
-Thiết kế theo hướng **dễ hiểu – gọn – chuẩn**, phù hợp người mới và có thể mở rộng sau.
